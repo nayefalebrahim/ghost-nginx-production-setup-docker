@@ -17,7 +17,7 @@ services:
       database__connection__database: YOUR_DB_NAME # db name same as below
       mail__transport: SMTP #99.9% you dont need to change this
       # See https://github.com/nodemailer/nodemailer/tree/0.7/#well-known-services-for-smtp for options & uncomment
-      # mail__options__service: mail.nayefalebrahim.com
+      # mail__options__service: Mailgun
       # If service is on the list remove host, port, secureConnection lines. Just specify user & pass
       mail__options__host: mail.example-server.com
       mail__options__port: 465
