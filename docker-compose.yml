@@ -32,7 +32,7 @@ services:
       # /opt/ghost_content on the host - create the directory & change if needed
       # /var/lib/ghost/content on the container - don't change
     volumes:
-      - /opt/ghost_content:/var/lib/ghost/content
+      - ./ghost_content:/var/lib/ghost/content
 
   db:
     build:
@@ -49,7 +49,7 @@ services:
       # /opt/ghost_mysql on the host - create the directory & change if needed
       # /var/lib/mysql on the container - don't change
     volumes:
-      - /opt/ghost_mysql:/var/lib/mysql
+      - ./ghost_mysql:/var/lib/mysql
 
   nginx:
     build:
@@ -64,7 +64,11 @@ services:
       # This maps your container to your host to persist data
       # Aka data will not be lost when rebuilding
     volumes:
+      # needed for letsencrypt
+      # Download certbot https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx.html
        - /etc/letsencrypt/:/etc/letsencrypt/
        - /usr/share/nginx/html:/usr/share/nginx/html
+       # logs so fail2ban can use if installed
        - /var/log/nginx:/var/log/nginx
-       - /opt/ghost_content:/var/www/ghost
+       # Change this if needed
+       - ./ghost_content:/var/www/ghost
