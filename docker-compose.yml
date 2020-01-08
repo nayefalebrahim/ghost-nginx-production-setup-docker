@@ -29,7 +29,7 @@ services:
       mail__from: "'Joe Smith' <noreply@example.com>" 
       # This maps your container to your host to persist data
       # Aka data will not be lost when rebuilding
-      # /opt/ghost_content on the host - create the directory & change if needed
+      # ./ghost_content on the host - create the directory & change if needed
       # /var/lib/ghost/content on the container - don't change
     volumes:
       - ./ghost_content:/var/lib/ghost/content
@@ -46,7 +46,7 @@ services:
       MYSQL_PASSWORD: 9EH246EGy#gKK # set a db password same as above
       # This maps your container to your host to persist data
       # Aka data will not be lost when rebuilding
-      # /opt/ghost_mysql on the host - create the directory & change if needed
+      # ./ghost_mysql on the host - create the directory & change if needed
       # /var/lib/mysql on the container - don't change
     volumes:
       - ./ghost_mysql:/var/lib/mysql
